@@ -30,9 +30,9 @@ MIT © [Zenedith](http://mobulum.com)
 
 [npm-image]: https://badge.fury.io/js/generator-spring-boot-application-from-swagger.svg
 [npm-url]: https://npmjs.org/package/generator-spring-boot-application-from-swagger
-[travis-image]: https://travis-ci.org/mobulum/generator-spring-boot-application-from-swagger.svg?branch=master
-[travis-url]: https://travis-ci.org/mobulum/generator-spring-boot-application-from-swagger
-[daviddm-image]: https://david-dm.org/mobulum/generator-spring-boot-application-from-swagger.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/mobulum/generator-spring-boot-application-from-swagger
-[coveralls-image]: https://coveralls.io/repos/mobulum/generator-spring-boot-application-from-swagger/badge.svg
-[coveralls-url]: https://coveralls.io/r/mobulum/generator-spring-boot-application-from-swagger
+[travis-image]: https://travis-ci.org/mobulum/npm-yo-generator-spring-boot-application-from-swagger.svg?branch=master
+[travis-url]: https://travis-ci.org/mobulum/npm-yo-generator-spring-boot-application-from-swagger
+[daviddm-image]: https://david-dm.org/mobulum/npm-yo-generator-spring-boot-application-from-swagger.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/mobulum/npm-yo-generator-spring-boot-application-from-swagger
+[coveralls-image]: https://coveralls.io/repos/mobulum/npm-yo-generator-spring-boot-application-from-swagger/badge.svg
+[coveralls-url]: https://coveralls.io/r/mobulum/npm-yo-generator-spring-boot-application-from-swagger
