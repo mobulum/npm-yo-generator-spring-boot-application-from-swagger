@@ -1,4 +1,5 @@
-# generator-spring-boot-application-from-swagger [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
+# generator-spring-boot-application-from-swagger
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 > Yeoman spring boot mvc application generator from swagger api specification
 
 ## Installation
@@ -14,6 +15,45 @@ Then generate your new project:
 
 ```bash
 yo spring-boot-application-from-swagger
+```
+
+## [Example](https://github.com/mobulum/example-spring-boot-application-from-swagger) of generated file structure based on defaults
+
+```
+├── api
+│   ├── build.gradle
+│   └── src
+│       ├── main
+│       │   ├── java
+│       │   │   └── com
+│       │   │       └── mobulum
+│       │   └── resources
+│       └── test
+│           └── groovy
+│               └── com
+│                   └── mobulum
+├── build.gradle
+├── gradle
+│   └── wrapper
+│       ├── gradle-wrapper.jar
+│       └── gradle-wrapper.properties
+├── gradlew
+├── gradlew.bat
+├── service
+│   ├── build.gradle
+│   └── src
+│       ├── main
+│       │   ├── java
+│       │   │   └── com
+│       │   │       └── mobulum
+│       │   │           └── Application.java
+│       │   └── resources
+│       │       └── application.yml
+│       └── test
+│           └── groovy
+│               └── com
+│                   └── mobulum
+└── settings.gradle
 ```
 
 ## Getting To Know Yeoman
