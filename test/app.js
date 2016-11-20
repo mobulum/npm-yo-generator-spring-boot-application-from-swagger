@@ -12,7 +12,16 @@ describe('generator-spring-boot-application-from-swagger:app', function () {
 
   it('creates files', function () {
     assert.file([
-      'dummyfile.txt'
+      '.gitignore',
+      'settings.gradle',
+      'build.gradle',
+      'gradlew',
+      'gradlew.bat',
+      'gradle/wrapper/gradle-wrapper.jar',
+      'gradle/wrapper/gradle-wrapper.properties',
+      'service/build.gradle',
+      'service/src/main/java/com/mobulum/Application.java',
+      'service/src/main/resources/application.yml'
     ]);
   });
 });

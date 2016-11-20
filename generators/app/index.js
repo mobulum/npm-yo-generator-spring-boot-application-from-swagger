@@ -8,7 +8,6 @@ module.exports = yeoman.Base.extend({
   },
 
   prompting: function () {
-
     var prompts = [
       {
         type: 'string',
@@ -46,7 +45,6 @@ module.exports = yeoman.Base.extend({
     var serviceSrcDir = 'service/src/main/java/' + packageFolder;
     var serviceResourceDir = 'service/src/main/resources';
 
-    //root
     this.copy('.gitignore', '.gitignore');
     this.copy('settings.gradle', 'settings.gradle');
     this.copy('build.gradle', 'build.gradle');
@@ -57,13 +55,10 @@ module.exports = yeoman.Base.extend({
     this.copy('gradle/wrapper/gradle-wrapper.jar', 'gradle/wrapper/gradle-wrapper.jar');
     this.copy('gradle/wrapper/gradle-wrapper.properties', 'gradle/wrapper/gradle-wrapper.properties');
 
-    //service
     this.template('service/build.gradle', 'service/build.gradle');
     this.template('service/Application.java', serviceSrcDir + '/Application.java');
     this.template('service/application.yml', serviceResourceDir + '/application.yml');
 
-    //api
-    // var apiSrcDir = 'api/src/main/java/' + packageFolder;
     this.copy('api/build.gradle', 'api/build.gradle');
 
     this.config.set('packageName', this.props.packageName);
