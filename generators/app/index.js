@@ -81,10 +81,7 @@ module.exports = yeoman.Base.extend({
         name: 'apiPath',
         message: 'Path (or URL) to swagger document:',
         required: true,
-        // default: 'http://petstore.swagger.io/v2/swagger.json',
-        default: '/Users/zenedith/git/yeoman/generator-spring-boot-application-from-swagger/example/pet-store-swagger.json',
-        // default: '/Users/zenedith/git/yeoman/generator-spring-boot-application-from-swagger/example/vh-swagger.json',
-        // default: '/Users/zenedith/git/yeoman/generator-spring-boot-application-from-swagger/example/receipts-swagger.json',
+        default: 'http://petstore.swagger.io/v2/swagger.json',
         validate: validate
       }];
 
