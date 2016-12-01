@@ -10,9 +10,9 @@ var plumber = require('gulp-plumber');
 var coveralls = require('gulp-coveralls');
 
 gulp.task('static', function () {
-  return gulp.src('**/*.js')
+  return gulp.src(['**/*.js','!node_modules/**'])
     .pipe(excludeGitignore())
-    .pipe(eslint())
+    .pipe(eslint({configFile : '.eslintrc'}))
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
 });
@@ -50,12 +50,7 @@ gulp.task('watch', function () {
 });
 
 gulp.task('coveralls', ['test'], function () {
-  if (!process.env.CI) {
-    return;
-  }
-
-  return gulp.src(path.join(__dirname, 'coverage/lcov.info'))
-    .pipe(coveralls());
+  return (process.env.CI) ? gulp.src(path.join(__dirname, 'coverage/lcov.info')).pipe(coveralls()) : {};
 });
 
 gulp.task('prepublish', ['nsp']);
