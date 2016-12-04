@@ -4,6 +4,18 @@
 
 # Work in progress
 
+- [x] Generate RestControllers
+- [x] Generate RestControllers specs
+- [x] Generate RestControllers integration specs
+- [x] Generate RestControllers spec tests
+- [x] Generate model classes (pojos) in `api` module
+- [x] Generate gradlew wrapper
+- [x] Generate simple application.yml
+- [x] Generate Application.java spring boot starter
+- [ ] Tests for yo generator code (coverage)
+- [ ] Swagger documentation support for generated code (@ApiModel, @ApiOperation)
+- [ ] Ask for spring boot version
+
 ## Installation
 
 First, install [Yeoman](http://yeoman.io) and generator-spring-boot-application-from-swagger using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
