@@ -11,9 +11,12 @@
 - [x] Generate gradlew wrapper
 - [x] Generate simple application.yml
 - [x] Generate Application.java spring boot starter
-- [ ] Tests for yo generator code (coverage)
+- [x] Added (base) swagger support (by io.springfox)
+- [ ] More tests for generator code (coverage)
 - [ ] Swagger documentation support for generated code (@ApiModel, @ApiOperation)
 - [ ] Ask for spring boot version
+- [ ] Add metrics support (@Timed)
+- [ ] Split generator to more actions
 
 ## Installation
 
