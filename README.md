@@ -7,7 +7,6 @@
 - [x] Generate RestControllers
 - [x] Generate RestControllers specs
 - [x] Generate RestControllers integration specs
-- [x] Generate RestControllers spec tests
 - [x] Generate model classes (pojos) in `api` module
 - [x] Generate gradlew wrapper
 - [x] Generate simple application.yml
