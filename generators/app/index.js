@@ -17,22 +17,18 @@ var definitionPackageNameDecorator = require('../../lib/decorators/definition/de
 var modules = ['api', 'service'];
 
 var updateConfigPath = function updateConfigPath(props) {
-  props.ymlApi = false;
-  if (props.apiPath && ('.yml' === Path.extname(props.apiPath) || '.yaml' === Path.extname(props.apiPath))) {
-    props.ymlApi = true;
-  }
+  props.ymlApi = props.apiPath && (Path.extname(props.apiPath) === '.yml' || Path.extname(props.apiPath) === '.yaml');
 };
 
 var validateApi = function validateApi(props, done) {
-  Parser.validate(props.apiPath, function (error, api) {
+  Parser.validate(props.apiPath, function validate(error, api) {
     if (error) {
       done(error);
       return;
     }
 
     props.api = api;
-    Parser.parse(props.apiPath, function (errorRef, refApi) {
-
+    Parser.parse(props.apiPath, function parse(errorRef, refApi) {
       if (errorRef) {
         done(errorRef);
         return;
@@ -44,16 +40,16 @@ var validateApi = function validateApi(props, done) {
   });
 };
 
-var validate = function (propName) {
-  return !!propName;
+var validate = function validate(propName) {
+  return Boolean(propName);
 };
 
 module.exports = yeoman.Base.extend({
-  helloMsg: function () {
+  helloMsg: function helloMsg() {
     this.log('Yeoman spring boot mvc application generator from swagger api specification');
   },
 
-  prompting: function () {
+  prompting: function prompting() {
     var done = this.async();
     var prompts = [
       {
@@ -85,7 +81,7 @@ module.exports = yeoman.Base.extend({
         validate: validate
       }];
 
-    return this.prompt(prompts).then(function (props) {
+    return this.prompt(prompts).then(function prompt(props) {
       // To access props later use this.props.someAnswer;
       var self = this;
       this.props = props;
@@ -95,30 +91,30 @@ module.exports = yeoman.Base.extend({
       this.props.restPackage = 'rest';
       this.props.controllersPackage = 'controllers';
       this.props.modelPackage = 'model';
+      this.props.log = self.log;
 
-      modules.forEach(function (module) {
+      modules.forEach(function forEachModule(module) {
         self.props[module + 'SrcDir'] = Path.join(module, 'src/main/java', packageFolder, module);
         self.props[module + 'ResDir'] = Path.join(module, 'src/main/resources');
         self.props[module + 'TestDir'] = Path.join(module, 'src/test/groovy', packageFolder, module);
         self.props[module + 'IntegrationTestDir'] = Path.join(module, 'src/integrationTest/groovy', packageFolder, module);
       });
 
-      //parse and validate the Swagger API entered by the user.
+      // parse and validate the Swagger API entered by the user.
       if (props.apiPath) {
         updateConfigPath(this.props);
         validateApi(this.props, done);
       } else {
         done();
       }
-
     }.bind(this));
   },
 
-  writing: function () {
+  writing: function writing() {
     var self = this;
-    // console.log(this.props);
+    // this.log(this.props);
 
-    modules.forEach(function (module) {
+    modules.forEach(function forEachModule(module) {
       mkdirp(self.props[module + 'SrcDir']);
       mkdirp(self.props[module + 'TestDir']);
       mkdirp(self.props[module + 'IntegrationTestDir']);
@@ -141,14 +137,14 @@ module.exports = yeoman.Base.extend({
 
     this.template(
       'service/Application.java',
-      Path.join(this.props.serviceSrcDir, 'Application' + '.java'),
+      Path.join(this.props.serviceSrcDir, 'Application.java'),
       {
         packageName: servicePackageName
       }
     );
     this.template(
       'service/integrationTest/ApplicationIntegrationSpec.groovy',
-      Path.join(this.props.serviceIntegrationTestDir, 'ApplicationIntegrationSpec' + '.groovy'),
+      Path.join(this.props.serviceIntegrationTestDir, 'ApplicationIntegrationSpec.groovy'),
       {
         packageName: servicePackageName
       }
@@ -156,7 +152,7 @@ module.exports = yeoman.Base.extend({
 
     this.template(
       'service/integrationTest/AbstractRestControllerIntegrationSpec.groovy',
-      Path.join(this.props.serviceIntegrationTestDir, self.props.restPackage, self.props.controllersPackage, 'AbstractRestControllerIntegrationSpec' + '.groovy'),
+      Path.join(this.props.serviceIntegrationTestDir, self.props.restPackage, self.props.controllersPackage, 'AbstractRestControllerIntegrationSpec.groovy'),
       {
         servicePackageName: servicePackageName,
         packageName: [servicePackageName, self.props.restPackage, self.props.controllersPackage].join('.')
@@ -182,7 +178,7 @@ module.exports = yeoman.Base.extend({
     this.config.set('controllersPackage', this.props.controllersPackage);
   },
 
-  routing: function () {
+  routing: function routing() {
     var self = this;
     var routes = [];
     var paths = this.props.api.paths;
@@ -190,7 +186,7 @@ module.exports = yeoman.Base.extend({
     // console.dir(this.props.refApi, {depth: 10});
 
     if (paths) {
-      Object.keys(paths).forEach(function (path) {
+      Object.keys(paths).forEach(function forEachPath(path) {
         var route = pathToRouteMapper(path, paths[path], self.props);
         routes.push(route);
       });
@@ -198,7 +194,7 @@ module.exports = yeoman.Base.extend({
 
     enumDefinitionRefDecorator(this.props.refApi);
 
-    Object.keys(this.props.refApi.definitions).forEach(function (classname) {
+    Object.keys(this.props.refApi.definitions).forEach(function forEachDefinition(classname) {
       var definition = self.props.refApi.definitions[classname];
       definitionPropertiesDecorator(classname, definition, self.props);
       definitionTemplateNameDecorator(classname, definition, self.props);
@@ -215,7 +211,7 @@ module.exports = yeoman.Base.extend({
 
     var controllers = routesToControllersMapper(routes, this.props);
 
-    Object.keys(controllers).forEach(function (classname) {
+    Object.keys(controllers).forEach(function forEachController(classname) {
       var controller = controllers[classname];
       controllerImportsDecorator(controller, self.props);
       controllerPackageDecorator(controller, self.props);
@@ -237,10 +233,10 @@ module.exports = yeoman.Base.extend({
         self.destinationPath(controller.restControllerIntegrationSpecDestination),
         controller
       );
-    })
+    });
   },
 
-  end: function () {
+  end: function end() {
     // this.spawnCommand('./gradlew', ['build']);
   }
 
