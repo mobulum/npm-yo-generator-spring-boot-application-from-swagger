@@ -11,8 +11,8 @@
 - [x] Generate gradlew wrapper
 - [x] Generate simple application.yml
 - [x] Generate Application.java spring boot starter
-- [x] Added (base) swagger support (by io.springfox)
-- [ ] More tests for generator code (coverage)
+- [ ] Added (base) swagger support (by io.springfox)
+- [x] More tests for generator code (coverage)
 - [ ] Swagger documentation support for generated code (@ApiModel, @ApiOperation)
 - [ ] Ask for spring boot version
 - [ ] Add metrics support (@Timed)
@@ -35,7 +35,7 @@ yo spring-boot-application-from-swagger
 ? Enter default base package name: com.mobulum
 ? Enter base name of app: app
 ? Enter controller class suffix: Controller
-? Path (or URL) to swagger document: http://petstore.swagger.io/v2/swagger.json
+? Path (or URL) to swagger document: https://raw.githubusercontent.com/mobulum/example-spring-boot-application-from-swagger/master/pet-store-swagger.json
 ```
 
 ## [Example](https://github.com/mobulum/example-spring-boot-application-from-swagger) of generated file structure based on defaults

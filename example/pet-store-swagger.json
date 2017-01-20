@@ -697,8 +697,7 @@
         "description": "",
         "operationId": "loginUser",
         "produces": [
-          "application/xml",
-          "application/json"
+          "text/plain"
         ],
         "parameters": [
           {

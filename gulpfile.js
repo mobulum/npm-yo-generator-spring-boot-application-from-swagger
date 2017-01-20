@@ -9,20 +9,20 @@ var nsp = require('gulp-nsp');
 var plumber = require('gulp-plumber');
 var coveralls = require('gulp-coveralls');
 
-gulp.task('static', function () {
-  return gulp.src(['**/*.js','!node_modules/**'])
+gulp.task('eslint', function eslintTask() {
+  return gulp.src(['**/*.js', '!node_modules/**'])
     .pipe(excludeGitignore())
-    .pipe(eslint({configFile : '.eslintrc'}))
+    .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
 });
 
-gulp.task('nsp', function (cb) {
+gulp.task('nsp', function nspTask(cb) {
   nsp({package: path.resolve('package.json')}, cb);
 });
 
-gulp.task('pre-test', function () {
-  return gulp.src('generators/**/*.js')
+gulp.task('pre-test', function preTestTask() {
+  return gulp.src('lib/**/*.js')
     .pipe(excludeGitignore())
     .pipe(istanbul({
       includeUntested: true
@@ -30,28 +30,28 @@ gulp.task('pre-test', function () {
     .pipe(istanbul.hookRequire());
 });
 
-gulp.task('test', ['pre-test'], function (cb) {
+gulp.task('test', ['pre-test'], function testTask(cb) {
   var mochaErr;
 
   gulp.src('test/**/*.js')
     .pipe(plumber())
     .pipe(mocha({reporter: 'spec'}))
-    .on('error', function (err) {
+    .on('error', function onError(err) {
       mochaErr = err;
     })
     .pipe(istanbul.writeReports())
-    .on('end', function () {
+    .on('end', function onEnd() {
       cb(mochaErr);
     });
 });
 
-gulp.task('watch', function () {
+gulp.task('watch', function watchTask() {
   gulp.watch(['generators/**/*.js', 'test/**'], ['test']);
 });
 
-gulp.task('coveralls', ['test'], function () {
+gulp.task('coveralls', ['test'], function coverallsTask() {
   return (process.env.CI) ? gulp.src(path.join(__dirname, 'coverage/lcov.info')).pipe(coveralls()) : {};
 });
 
 gulp.task('prepublish', ['nsp']);
-gulp.task('default', ['static', 'test', 'coveralls']);
+gulp.task('default', ['eslint', 'test', 'coveralls']);
