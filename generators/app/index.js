@@ -1,29 +1,35 @@
 'use strict';
-var yeoman = require('yeoman-generator');
-var app = require('../../lib/generators/app');
 
-module.exports = yeoman.Base.extend({
-  helloMsg: function helloMsg() {
+const Generator = require('yeoman-generator');
+const app = require('../../lib/generators/app');
+
+module.exports = class extends Generator {
+  initializing() {
+    this.props = {};
+  }
+
+  helloMsg() {
     this.log('Yeoman spring boot mvc application generator from swagger api specification');
-  },
+  }
 
-  prompting: function prompting() {
-    var done = this.async();
+  prompting() {
+    const self = this;
+    const done = self.async();
     return this.prompt(app.prompts).then(function responses(props) {
-      app.onResponses(this, props, done);
+      app.onResponses(self, props, done);
     }.bind(this));
-  },
+  }
 
-  writing: function writing() {
+  writing() {
     app.write(this);
-  },
+  }
 
-  routing: function routing() {
+  routing() {
     app.routing(this);
-  },
+  }
 
-  end: function end() {
+  end() {
     // this.spawnCommand('./gradlew', ['build']);
   }
 
-});
+};

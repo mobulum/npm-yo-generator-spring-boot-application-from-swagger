@@ -1,16 +1,16 @@
 'use strict';
 
-var definitionPackageNameDecorator = require('../../../lib/decorators/definition/definitionPackageNameDecorator').decorateDefinition;
-var assert = require('yeoman-assert');
+const definitionPackageNameDecorator = require('../../../lib/decorators/definition/definitionPackageNameDecorator').decorateDefinition;
+const assert = require('yeoman-assert');
 
 describe('decorators:definition:package definition decorator', function () {
 
   it('should decorate', function () {
 
     // given
-    var classname = 'ClassName';
-    var definition = {};
-    var props = {
+    const classname = 'ClassName';
+    const definition = {};
+    const props = {
       basePackageName: 'com.mobulum',
       apiSrcDir: 'api/src/main/java/api',
       controllersPackage: 'controller',

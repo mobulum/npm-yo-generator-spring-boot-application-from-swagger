@@ -1,18 +1,18 @@
 'use strict';
 
-var controllerPackageDecorator = require('../../../lib/decorators/controller/controllerPackageDecorator').decorateController;
-var assert = require('yeoman-assert');
+const controllerPackageDecorator = require('../../../lib/decorators/controller/controllerPackageDecorator').decorateController;
+const assert = require('yeoman-assert');
 
 describe('decorators:controller:package controller decorator', function () {
 
   it('should decorate', function () {
 
     // given
-    var controller = {
+    const controller = {
       classname: 'ClassName'
     };
 
-    var props = {
+    const props = {
       basePackageName: 'com.mobulum',
       serviceSrcDir: 'service/src/main/java/service',
       serviceTestDir: 'service/src/test/groovy/service',

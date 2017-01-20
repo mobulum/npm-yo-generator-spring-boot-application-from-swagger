@@ -1,18 +1,18 @@
 'use strict';
 
-var definitionTemplateNameDecorator = require('../../../lib/decorators/definition/definitionTemplateNameDecorator').decorateDefinition;
-var assert = require('yeoman-assert');
+const definitionTemplateNameDecorator = require('../../../lib/decorators/definition/definitionTemplateNameDecorator').decorateDefinition;
+const assert = require('yeoman-assert');
 
 describe('decorators:definition:template definition decorator', function () {
 
   // given
-  var classname = 'ClassName';
-  var props = {};
+  const classname = 'ClassName';
+  const props = {};
 
   it('should decorate enum', function () {
 
     // given
-    var definition = {
+    const definition = {
       type: 'enum'
     };
 
@@ -28,7 +28,7 @@ describe('decorators:definition:template definition decorator', function () {
   it('should decorate object', function () {
 
     // given
-    var definition = {
+    const definition = {
       type: 'object'
     };
 

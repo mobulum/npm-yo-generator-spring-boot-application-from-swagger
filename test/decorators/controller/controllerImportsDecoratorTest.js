@@ -1,16 +1,16 @@
 'use strict';
 
-var controllerImportsDecorator = require('../../../lib/decorators/controller/controllerImportsDecorator').decorateController;
-var assert = require('yeoman-assert');
+const controllerImportsDecorator = require('../../../lib/decorators/controller/controllerImportsDecorator').decorateController;
+const assert = require('yeoman-assert');
 
 describe('decorators:controller:imports controller decorator', function () {
 
-  var props = {};
+  const props = {};
 
   it('should decorate with empty imports for empty data', function () {
 
     // given
-    var controller = {};
+    const controller = {};
 
     // when
     controllerImportsDecorator(controller, props);
@@ -22,7 +22,7 @@ describe('decorators:controller:imports controller decorator', function () {
   it('should decorate with imports for operation responses, skipping java Object types', function () {
 
     // given
-    var controller = {
+    const controller = {
       routes: [
         {
           operations: [
@@ -57,7 +57,7 @@ describe('decorators:controller:imports controller decorator', function () {
   it('should decorate with imports for operation body parameters', function () {
 
     // given
-    var controller = {
+    const controller = {
       routes: [
         {
           operations: [
@@ -100,7 +100,7 @@ describe('decorators:controller:imports controller decorator', function () {
   it('should decorate with imports for operation parameters and responses', function () {
 
     // given
-    var controller = {
+    const controller = {
       routes: [
         {
           operations: [
