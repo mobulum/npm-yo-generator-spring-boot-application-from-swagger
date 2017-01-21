@@ -14,7 +14,7 @@
 - [x] More tests for generator code (coverage)
 - [x] Migrate to yeoman-generator 1.x.x
 - [x] Switch to es6
-- [ ] Yeoman arguments supports
+- [ ] Yeoman arguments support
 - [ ] Kotlin support (poc)
 - [ ] Added (base) swagger support (by io.springfox)
 - [ ] Swagger documentation support for generated code (@ApiModel, @ApiOperation)
