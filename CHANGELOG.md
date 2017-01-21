@@ -1,3 +1,10 @@
+0.5.0 / 2017-01-22
+  * Updated dependencies (spring boot to 1.4.3)
+  * Added gradle plugin com.github.ben-manes.versions for checking depedencies version
+
+0.4.1 / 2017-01-22
+  * Fixed settings.gradle
+
 0.4.0 / 2017-01-21
   * Migrate to yeoman-generator 1.x.x
   * Switch to es6
