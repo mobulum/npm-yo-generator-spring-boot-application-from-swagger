@@ -3,11 +3,12 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.3.RELEASE")
     }
 }
 
 plugins {
+    id 'com.github.ben-manes.versions' version '0.13.0'
     id 'org.sonarqube' version '2.2.1'
 }
 
@@ -24,14 +25,12 @@ allprojects {
     }
 
     ext {
-        springBootVersion = '1.4.2.RELEASE'
-        jacksonVersion = '2.8.4'
+        springBootVersion = '1.4.3.RELEASE'
+        jacksonVersion = '2.8.6'
         spockVersion = '1.0-groovy-2.4'
-        dropwizardCoreVersion = '1.0.3'
+        dropwizardCoreVersion = '1.0.5'
         cglibVersion = '3.2.4'
-        objenesisVersion = '2.4'
         swaggerVersion = '2.6.1'
-        springVersion = '4.0.9.RELEASE'
     }
 
     test {
@@ -76,5 +75,5 @@ subprojects {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.14.1'
+    gradleVersion = '3.3'
 }
