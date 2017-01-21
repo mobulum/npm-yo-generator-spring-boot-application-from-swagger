@@ -4,4 +4,3 @@ coverage
 *.iml
 *.ipr
 *.iws
-yarn.lock

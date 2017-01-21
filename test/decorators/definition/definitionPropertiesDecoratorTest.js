@@ -1,18 +1,20 @@
 'use strict';
 
-var definitionPropertiesDecorator = require('../../../lib/decorators/definition/definitionPropertiesDecorator').decorateDefinition;
-var assert = require('yeoman-assert');
+const definitionPropertiesDecorator = require('../../../lib/decorators/definition/definitionPropertiesDecorator').decorateDefinition;
+const assert = require('yeoman-assert');
 
 describe('decorators:definition:properties definition decorator', function () {
 
   // given
-  var classname = 'ClassName';
-  var props = {};
+  const classname = 'ClassName';
+  const props = {
+    log: console.log
+  };
 
   it('should skip decorate for enum', function () {
 
     // given
-    var definition = {
+    const definition = {
       type: 'enum'
     };
 
@@ -26,7 +28,7 @@ describe('decorators:definition:properties definition decorator', function () {
   it('should decorate', function () {
 
     // given
-    var definition = {
+    const definition = {
       type: 'object',
       required: ['id'],
       properties: {

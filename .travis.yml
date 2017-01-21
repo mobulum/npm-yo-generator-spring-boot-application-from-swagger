@@ -1,5 +1,10 @@
+sudo: false
 language: node_js
+cache:
+  yarn: true
+  directories:
+    - node_modules
 node_js:
-  - v7
-  - v6
-  - v5
+  - node
+  - 6
+  - 4

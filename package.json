@@ -1,6 +1,6 @@
 {
   "name": "generator-spring-boot-application-from-swagger",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Yeoman spring boot mvc application generator from swagger api specification",
   "homepage": "https://github.com/mobulum/npm-yo-generator-spring-boot-application-from-swagger",
   "author": {
@@ -21,14 +21,15 @@
     "yeoman-generator"
   ],
   "dependencies": {
-    "js-yaml": "^3.6.1",
-    "swagger-parser": "^3.4.1",
     "chalk": "1.1.3",
-    "yeoman-generator": "0.24.1",
+    "js-yaml": "3.7.0",
+    "mkdirp": "0.5.1",
+    "swagger-parser": "3.4.1",
+    "yeoman-generator": "1.0.1",
     "yosay": "1.2.1"
   },
   "devDependencies": {
-    "eslint": "3.12.0",
+    "eslint": "3.14.0",
     "eslint-config-xo-space": "0.15.0",
     "gulp": "3.9.1",
     "gulp-coveralls": "0.1.4",
@@ -39,18 +40,23 @@
     "gulp-mocha": "3.0.1",
     "gulp-nsp": "2.4.2",
     "gulp-plumber": "1.1.0",
-    "yeoman-assert": "2.2.1",
+    "yeoman-assert": "2.2.2",
     "yeoman-test": "1.6.0"
   },
   "eslintConfig": {
     "extends": "xo-space",
+    "parserOptions": {
+      "ecmaVersion": 6
+    },
     "env": {
       "mocha": true
     },
     "rules": {
-      "func-names": ["error", "always"],
+      "func-names": [
+        "error",
+        "always"
+      ],
       "no-prototype-builtins": "warn"
-
     }
   },
   "repository": "git@github.com:mobulum/npm-yo-generator-spring-boot-application-from-swagger.git",
