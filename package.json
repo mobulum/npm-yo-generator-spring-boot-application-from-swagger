@@ -1,6 +1,6 @@
 {
   "name": "generator-spring-boot-application-from-swagger",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Yeoman spring boot mvc application generator from swagger api specification",
   "homepage": "https://github.com/mobulum/npm-yo-generator-spring-boot-application-from-swagger",
   "author": {
