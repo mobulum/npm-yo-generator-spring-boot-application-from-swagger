@@ -7,7 +7,9 @@ describe('decorators:definition:template definition decorator', function () {
 
   // given
   const classname = 'ClassName';
-  const props = {};
+  const props = {
+    log: console.log
+  };
 
   it('should decorate enum', function () {
 

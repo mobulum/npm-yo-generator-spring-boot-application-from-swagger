@@ -5,7 +5,9 @@ const assert = require('yeoman-assert');
 
 describe('decorators:controller:imports controller decorator', function () {
 
-  const props = {};
+  const props = {
+    log: console.log
+  };
 
   it('should decorate with empty imports for empty data', function () {
 

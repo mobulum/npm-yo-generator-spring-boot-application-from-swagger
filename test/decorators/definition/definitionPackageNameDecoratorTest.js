@@ -11,6 +11,7 @@ describe('decorators:definition:package definition decorator', function () {
     const classname = 'ClassName';
     const definition = {};
     const props = {
+      log: console.log,
       basePackageName: 'com.mobulum',
       apiSrcDir: 'api/src/main/java/api',
       controllersPackage: 'controller',

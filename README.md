@@ -13,6 +13,8 @@
 - [x] Generate Application.java spring boot starter
 - [x] More tests for generator code (coverage)
 - [x] Migrate to yeoman-generator 1.x.x
+- [x] Switch to es6
+- [ ] Yeoman arguments supports
 - [ ] Kotlin support (poc)
 - [ ] Added (base) swagger support (by io.springfox)
 - [ ] Swagger documentation support for generated code (@ApiModel, @ApiOperation)

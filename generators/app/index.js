@@ -17,7 +17,7 @@ module.exports = class extends Generator {
     const done = self.async();
     return this.prompt(app.prompts).then(function responses(props) {
       app.onResponses(self, props, done);
-    }.bind(this));
+    });
   }
 
   writing() {

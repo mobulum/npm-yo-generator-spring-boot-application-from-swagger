@@ -7,7 +7,9 @@ describe('decorators:definition:properties definition decorator', function () {
 
   // given
   const classname = 'ClassName';
-  const props = {};
+  const props = {
+    log: console.log
+  };
 
   it('should skip decorate for enum', function () {
 
