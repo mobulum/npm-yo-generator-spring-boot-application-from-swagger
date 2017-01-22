@@ -14,7 +14,7 @@
 - [x] More tests for generator code (coverage)
 - [x] Migrate to yeoman-generator 1.x.x
 - [x] Switch to es6
-- [ ] Yeoman arguments support
+- [x] Yeoman options support
 - [ ] Kotlin support (poc)
 - [ ] Added (base) swagger support (by io.springfox)
 - [ ] Swagger documentation support for generated code (@ApiModel, @ApiOperation)
@@ -26,21 +26,63 @@
 
 First, install [Yeoman](http://yeoman.io) and generator-spring-boot-application-from-swagger using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
+Using yarn (recommended):
+
 ```bash
-npm install -g yo
-npm install -g generator-spring-boot-application-from-swagger
+$ yarn global add yo
+$ yarn global add generator-spring-boot-application-from-swagger
 ```
 
-Then generate your new project:
+Using npm:
 
 ```bash
-yo spring-boot-application-from-swagger
+$ npm install -g yo
+$ npm install -g generator-spring-boot-application-from-swagger
+```
+
+## Usage
+
+```bash
+$ yo spring-boot-application-from-swagger --help
+
+Usage:
+  yo spring-boot-application-from-swagger:app [options]
+
+Options:
+  -h,   --help                     # Print the generator's options and usage
+        --skip-cache               # Do not remember prompt answers                        Default: false
+        --skip-install             # Do not automatically install dependencies             Default: false
+        --use-cli-defaults         # Use default values if not provided (will not prompt)
+        --run-gradle-build         # Run build gradle on generated project
+        --base-package-name        # Enter default base package name:                      Default: com.mobulum
+        --base-name                # Enter base name of app:                               Default: app
+        --controller-class-suffix  # Enter controller class suffix:                        Default: Controller
+        --api-path                 # Path (or URL) to swagger document:                    Default: https://raw.githubusercontent.com/mobulum/example-spring-boot-application-from-swagger/master/pet-store-swagger.json
+```
+
+## Generate your (new) project
+
+### In default (questions) mode
+
+```bash
+$ yo spring-boot-application-from-swagger
 
 ? Enter default base package name: com.mobulum
 ? Enter base name of app: app
 ? Enter controller class suffix: Controller
 ? Path (or URL) to swagger document: https://raw.githubusercontent.com/mobulum/example-spring-boot-application-from-swagger/master/pet-store-swagger.json
 ```
+
+### Passing values to command line
+
+```bash
+$ yo spring-boot-application-from-swagger \
+  --base-package-name=com.example \
+  --base-name=apps \
+  --controller-class-suffix=Ctrl \
+  --api-path=https://raw.githubusercontent.com/mobulum/example-spring-boot-application-from-swagger/master/pet-store-swagger.json
+```
+
 
 ## [Example](https://github.com/mobulum/example-spring-boot-application-from-swagger) of generated file structure based on defaults
 
@@ -133,7 +175,7 @@ yo spring-boot-application-from-swagger
 
 ## License
 
-MIT © [Zenedith](http://mobulum.com)
+MIT © [mobulum.com](http://mobulum.com)
 
 
 [npm-image]: https://badge.fury.io/js/generator-spring-boot-application-from-swagger.svg

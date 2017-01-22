@@ -1,3 +1,7 @@
+0.6.0 / 2017-01-22
+  * Yeoman options support
+  * More friendly command line usage
+
 0.5.0 / 2017-01-22
   * Updated dependencies (spring boot to 1.4.3)
   * Added gradle plugin com.github.ben-manes.versions for checking depedencies version

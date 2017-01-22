@@ -2063,6 +2063,10 @@ lodash@3.6.*, lodash@^3.2.0, lodash@^3.6.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.6.0.tgz#5266a8f49dd989be4f9f681b6f2a0c55285d0d9a"
 
+lodash@^3.9.3:
+  version "3.10.1"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
+
 lodash@^4.0.0, lodash@^4.11.1, lodash@^4.14.0, lodash@^4.17.2, lodash@^4.3.0, lodash@^4.6.1:
   version "4.17.2"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.2.tgz#34a3055babe04ce42467b607d700072c7ff6bf42"
@@ -3437,6 +3441,12 @@ yeoman-generator@^0.24.1:
     yeoman-environment "^1.1.0"
     yeoman-test "^1.0.0"
     yeoman-welcome "^1.0.0"
+
+yeoman-option-or-prompt@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/yeoman-option-or-prompt/-/yeoman-option-or-prompt-1.0.2.tgz#6f37c85c5f90ef0117a6df594615b8c29006775b"
+  dependencies:
+    lodash "^3.9.3"
 
 yeoman-test@1.6.0, yeoman-test@^1.0.0:
   version "1.6.0"
