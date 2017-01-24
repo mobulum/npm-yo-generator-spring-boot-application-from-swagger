@@ -15,6 +15,7 @@
 - [x] Migrate to yeoman-generator 1.x.x
 - [x] Switch to es6
 - [x] Yeoman options support
+- [x] Added configuration for: pmd, findbugs and checkstyle
 - [ ] Kotlin support (poc)
 - [ ] Added (base) swagger support (by io.springfox)
 - [ ] Swagger documentation support for generated code (@ApiModel, @ApiOperation)
@@ -50,14 +51,15 @@ Usage:
 
 Options:
   -h,   --help                     # Print the generator's options and usage
-        --skip-cache               # Do not remember prompt answers                        Default: false
-        --skip-install             # Do not automatically install dependencies             Default: false
+        --skip-cache               # Do not remember prompt answers                                  Default: false
+        --skip-install             # Do not automatically install dependencies                       Default: false
         --use-cli-defaults         # Use default values if not provided (will not prompt)
         --run-gradle-build         # Run build gradle on generated project
-        --base-package-name        # Enter default base package name:                      Default: com.mobulum
-        --base-name                # Enter base name of app:                               Default: app
-        --controller-class-suffix  # Enter controller class suffix:                        Default: Controller
-        --api-path                 # Path (or URL) to swagger document:                    Default: https://raw.githubusercontent.com/mobulum/example-spring-boot-application-from-swagger/master/pet-store-swagger.json
+        --base-package-name        # Enter default base package name:                                Default: com.mobulum
+        --base-name                # Enter base name of app:                                         Default: app
+        --controller-class-suffix  # Enter controller class suffix:                                  Default: Controller
+        --api-path                 # Path (or URL) to swagger document:                              Default: https://raw.githubusercontent.com/mobulum/example-spring-boot-application-from-swagger/master/pet-store-swagger.json
+        --enable-quality-checks    # Should configure and enable checks (findbugs, pmd, checkstyle)  Default: true
 ```
 
 ## Generate your (new) project
@@ -71,6 +73,7 @@ $ yo spring-boot-application-from-swagger
 ? Enter base name of app: app
 ? Enter controller class suffix: Controller
 ? Path (or URL) to swagger document: https://raw.githubusercontent.com/mobulum/example-spring-boot-application-from-swagger/master/pet-store-swagger.json
+? Should configure and enable checks (findbugs, pmd, checkstyle) (true)
 ```
 
 ### Passing values to command line
@@ -80,13 +83,15 @@ $ yo spring-boot-application-from-swagger \
   --base-package-name=com.example \
   --base-name=apps \
   --controller-class-suffix=Ctrl \
-  --api-path=https://raw.githubusercontent.com/mobulum/example-spring-boot-application-from-swagger/master/pet-store-swagger.json
+  --api-path=https://raw.githubusercontent.com/mobulum/example-spring-boot-application-from-swagger/master/pet-store-swagger.json \
+  --enable-quality-checks=1
 ```
 
 
 ## [Example](https://github.com/mobulum/example-spring-boot-application-from-swagger) of generated file structure based on defaults
 
 ```
+├── README.md
 ├── api
 │   ├── build.gradle
 │   └── src
@@ -117,12 +122,22 @@ $ yo spring-boot-application-from-swagger \
 │                   └── mobulum
 │                       └── api
 ├── build.gradle
+├── config
+│   ├── checkstyle
+│   │   ├── checkstyle.xml
+│   │   └── suppressions.xml
+│   ├── findbugs
+│   │   ├── findbugs-excludes.xml
+│   │   └── findbugs-includes.xml
+│   └── pmd
+│       └── pmd.xml
 ├── gradle
 │   └── wrapper
 │       ├── gradle-wrapper.jar
 │       └── gradle-wrapper.properties
 ├── gradlew
 ├── gradlew.bat
+├── quality.gradle
 ├── service
 │   ├── build.gradle
 │   └── src
@@ -163,7 +178,7 @@ $ yo spring-boot-application-from-swagger \
 │                                   └── V2UserControllerSpec.groovy
 └── settings.gradle
 
-45 directories, 31 files
+49 directories, 37 files
 ```
 
 ## Getting To Know Yeoman

@@ -1,6 +1,6 @@
 buildscript {
     repositories {
-        mavenCentral()
+        jcenter()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.3.RELEASE")
@@ -21,7 +21,7 @@ allprojects {
     targetCompatibility = 1.8
 
     repositories {
-        mavenCentral()
+        jcenter()
     }
 
     ext {
@@ -65,8 +65,8 @@ allprojects {
 }
 
 subprojects {
-    apply plugin: 'findbugs'
-
+<% if (enableQualityChecks) {%>    apply from: rootProject.file('quality.gradle')
+<% } %>
     dependencies {
         compile "org.springframework.boot:spring-boot-starter-logging:${springBootVersion}"
         testCompile "org.spockframework:spock-core:${spockVersion}"

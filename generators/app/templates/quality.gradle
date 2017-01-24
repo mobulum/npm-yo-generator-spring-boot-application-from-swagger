@@ -1,0 +1,100 @@
+apply plugin: 'findbugs'
+apply plugin: 'checkstyle'
+apply plugin: 'pmd'
+
+ext {
+    findbugsVersion = '3.0.1'
+    pmdVersion = '5.5.1'
+    checkstyleVersion = '7.4'
+}
+
+tasks.withType(Checkstyle) {
+    reports {
+        xml {
+            enabled = true
+        }
+
+        html {
+            enabled = true
+        }
+    }
+}
+
+tasks.withType(FindBugs) {
+    reports {
+        xml {
+            enabled = false
+        }
+
+        html {
+            enabled = true
+        }
+    }
+}
+
+tasks.withType(Pmd) {
+    reports {
+        xml {
+            enabled = true
+        }
+
+        html {
+            enabled = true
+        }
+    }
+}
+
+checkstyle {
+    ignoreFailures = false
+    toolVersion = checkstyleVersion
+    configFile = rootProject.file('config/checkstyle/checkstyle.xml')
+}
+
+pmd {
+    ignoreFailures = false
+    toolVersion = pmdVersion
+    ruleSetFiles = files("${project.rootDir}/config/pmd/pmd.xml")
+}
+
+findbugs {
+    ignoreFailures = false
+    toolVersion = findbugsVersion
+    effort = "max"
+    reportLevel = "high"
+}
+
+checkstyleMain {
+    enabled = true
+}
+
+checkstyleTest {
+    enabled = false
+}
+
+checkstyleIntegrationTest {
+    enabled = false
+}
+
+findbugsMain {
+    enabled = true
+}
+
+findbugsTest {
+    enabled = false
+}
+
+findbugsIntegrationTest {
+    enabled = false
+}
+
+pmdMain {
+    enabled = true
+}
+
+pmdTest {
+    enabled = false
+}
+
+pmdIntegrationTest {
+    enabled = false
+}

@@ -63,7 +63,7 @@ module.exports = class extends Generator {
     if (this.options.runGradleBuild) {
       this.spawnCommand('./gradlew', ['build']);
     } else {
-      this.log('Skipping run gradle build (no --runGradleBuild flag set)');
+      this.log('Skipping run gradle build (no --run-gradle-build flag set)');
     }
   }
 
