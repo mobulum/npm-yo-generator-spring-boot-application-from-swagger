@@ -30,8 +30,8 @@
     "yosay": "2.0.0"
   },
   "devDependencies": {
-    "eslint": "3.17.1",
-    "eslint-config-xo-space": "0.15.0",
+    "eslint": "3.18.0",
+    "eslint-config-xo-space": "0.16.0",
     "gulp": "3.9.1",
     "gulp-coveralls": "0.1.4",
     "gulp-eslint": "3.0.1",
