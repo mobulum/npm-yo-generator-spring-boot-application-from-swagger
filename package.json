@@ -25,12 +25,12 @@
     "js-yaml": "3.10.0",
     "mkdirp": "0.5.1",
     "pinkie-promise": "2.0.1",
-    "swagger-parser": "4.0.1",
+    "swagger-parser": "4.0.2",
     "yeoman-generator": "2.0.2",
     "yosay": "2.0.1"
   },
   "devDependencies": {
-    "eslint": "4.15.0",
+    "eslint": "4.16.0",
     "eslint-config-xo-space": "0.17.0",
     "gulp": "3.9.1",
     "gulp-coveralls": "0.1.4",
