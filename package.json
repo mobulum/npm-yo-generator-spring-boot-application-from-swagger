@@ -22,7 +22,7 @@
   ],
   "dependencies": {
     "chalk": "2.3.2",
-    "js-yaml": "3.10.0",
+    "js-yaml": "3.11.0",
     "mkdirp": "0.5.1",
     "pinkie-promise": "2.0.1",
     "swagger-parser": "4.0.2",
