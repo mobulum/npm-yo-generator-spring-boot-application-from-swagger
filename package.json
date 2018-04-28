@@ -21,12 +21,12 @@
     "yeoman-generator"
   ],
   "dependencies": {
-    "chalk": "2.3.2",
+    "chalk": "2.4.1",
     "js-yaml": "3.11.0",
     "mkdirp": "0.5.1",
     "pinkie-promise": "2.0.1",
     "swagger-parser": "4.1.0",
-    "yeoman-generator": "2.0.3",
+    "yeoman-generator": "2.0.4",
     "yosay": "2.0.2"
   },
   "devDependencies": {
